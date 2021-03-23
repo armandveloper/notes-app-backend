@@ -6,6 +6,7 @@ module.exports = async () => {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useCreateIndex: true,
+			useFindAndModify: false,
 		});
 		console.log('Connection with db has been established');
 	} catch (err) {

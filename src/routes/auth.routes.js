@@ -30,6 +30,6 @@ router.post(
 	signup
 );
 
-router.post('/renewToken', validateJWT, renewToken);
+router.get('/renewToken', validateJWT, renewToken);
 
 module.exports = router;

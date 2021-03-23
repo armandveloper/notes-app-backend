@@ -87,7 +87,9 @@ exports.toggleCompleted = async (req, res) => {
 
 exports.getNotes = async (req, res) => {
 	try {
-		const notes = await Note.find({ user: req.uid });
+		const notes = await Note.find({ user: req.uid }).sort({
+			updatedAt: 'desc',
+		});
 		return res.json({ success: true, msg: 'Note list', notes });
 	} catch (err) {
 		console.log(err);
