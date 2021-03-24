@@ -5,7 +5,16 @@ const helmet = require('helmet');
 const app = express();
 
 app.use(helmet());
-app.use(cors());
+if (process.env.NODE_ENV === 'development') {
+	app.use(cors());
+} else {
+	app.use(
+		cors({
+			origin: 'https://armcruz.github.io',
+			optionsSuccessStatus: 200,
+		})
+	);
+}
 app.use(express.json());
 
 app.use('/api', require('./routes/index.routes'));
